@@ -1,0 +1,36 @@
+class Artist
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+
+end
+
+
+require "pry"
+
+class MP3Importer
+  attr_accessor :path, :all_files
+
+  def initialize(path)
+    @path = path
+  end
+
+  def files
+    @all_files = Dir["../db/mp3s/*"]
+  end
+
+  def import
+    @all_files.select do |file|
+      binding.pry
+      file(-3..-1) == (".mp3")
+    end
+  end
+end
+
+
+class Song
+
+end 
